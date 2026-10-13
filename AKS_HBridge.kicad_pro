@@ -662,13 +662,18 @@
       {
         "filename": "AKS_HBridge.kicad_sch",
         "name": "AKS_HBridge",
-        "uuid": "00000000-0000-0000-0000-000000000000"
+        "uuid": "724ac156-55a4-4fba-8a20-6a27287ebea5"
       }
     ],
-    "used_designators": "U1",
+    "used_designators": "#FLG1,#PWR1,U1",
     "variants": []
   },
-  "sheets": [],
+  "sheets": [
+    [
+      "724ac156-55a4-4fba-8a20-6a27287ebea5",
+      "AKS_HBridge"
+    ]
+  ],
   "text_variables": {},
   "tuning_profiles": {
     "meta": {
