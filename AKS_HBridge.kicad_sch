@@ -6571,7 +6571,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_JST:JST_PH_B5B-PH-K_1x05_P2.00mm_Vertical"
 			(at 165.1 33.02 0)
 			(hide yes)
 			(show_name no)
