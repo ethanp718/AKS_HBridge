@@ -1,0 +1,408 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc
+Date     : 5/22/2023
+Time     : 3:39:37 PM
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_VM_P160')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_GND_P162')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_1_VM_P146')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_NONET_P138')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_VM_P166')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_OUT2_P163')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_OUT1_P164')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_VM_P235')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P076')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_GND_P082')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P127') Or  InNamedPolygon('TOP_LAYER_VM_P085')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P087')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_1_VM_P148') Or  InNamedPolygon('SIGNAL_LAYER_1_VM_P148')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_GND_P156')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_NONET_P138')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_1_GND_P154')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VBAT_P223')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_NETF1_2_P207')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P086')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_P_IN_P227')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_VBAT_P197')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_NETF1_2_P196')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_3V3_P194')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_P_IN_P198')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_1_GND_P184')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_1_GND_P190')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_GND_P241')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_GND_P241')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_EZFET_VBUS_P136')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_VM_P177') Or  InNamedPolygon('SIGNAL_LAYER_2_VM_P179') Or  InNamedPolygon('SIGNAL_LAYER_2_VM_P160') Or  InNamedPolygon('SIGNAL_LAYER_2_VM_P175') Or  InNamedPolygon('SIGNAL_LAYER_2_VM_P181')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_MCU_3V3_P192')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_EZFET_VCC_P132')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_NONET_P089') Or  InNamedPolygon('TOP_LAYER_NONET_P090')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_NONET_P079') Or  InNamedPolygon('SIGNAL_LAYER_2_NONET_P078') Or  InNamedPolygon('SIGNAL_LAYER_1_NONET_P077') Or  InNamedPolygon('TOP_LAYER_NONET_P083') Or  InNamedPolygon('BOTTOM_LAYER_NONET_P072') Or  InNamedPolygon('SIGNAL_LAYER_2_NONET_P070') Or  InNamedPolygon('SIGNAL_LAYER_1_NONET_P059') Or  InNamedPolygon('TOP_LAYER_OUT2_P058') Or  InNamedPolygon('BOTTOM_LAYER_NONET_P056') Or  InNamedPolygon('SIGNAL_LAYER_2_NONET_P054') Or  InNamedPolygon('SIGNAL_LAYER_1_NONET_P052') Or  InNamedPolygon('TOP_LAYER_OUT1_P050') Or  InNamedPolygon('BOTTOM_LAYER_VM_P044') Or  InNamedPolygon('SIGNAL_LAYER_2_VM_P042') Or  InNamedPolygon('SIGNAL_LAYER_1_VM_P040') Or  InNamedPolygon('TOP_LAYER_VM_P038') Or  InNamedPolygon('BOTTOM_LAYER_VM_P036') Or  InNamedPolygon('SIGNAL_LAYER_2_VM_P018') Or  InNamedPolygon('SIGNAL_LAYER_1_VM_P016') Or  InNamedPolygon('TOP_LAYER_VM_P002')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_NONET_P072')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_EZFET_USB_SHIELD_P002') Or  InNamedPolygon('TOP_LAYER_EZFET_USB_SHIELD_P201') Or  InNamedPolygon('SIGNAL_LAYER_2_EZFET_VBUS_P018') Or  InNamedPolygon('SIGNAL_LAYER_2_EZFET_VCC_P016')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P099')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P099')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P000')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P000')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0mil) (IsKeepOut and InComponentClass('FiducialMark')),(IsPad and InComponentClass('FiducialMark'))
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=7.874mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=0mil) (((IsTrack Or IsArc) And Not InPoly) And IsFree and IsKeepOut),(((IsTrack Or IsArc) And Not InPoly) And IsFree and IsKeepOut)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=25mil) (InPolygon),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P042') Or  InNamedPolygon('TOP_LAYER_VM_P044') Or  InNamedPolygon('TOP_LAYER_OUT2_P040') Or  InNamedPolygon('TOP_LAYER_OUT1_P038')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P123') Or  InNamedPolygon('TOP_LAYER_VM_P123') Or  InNamedPolygon('TOP_LAYER_VM_P123')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=5.984mil) (InNamedPolygon('TOP_LAYER_VM_P046')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P040')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_NONET_P083')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_1_NONET_P111')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P107')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_NONET_P105')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P129') Or  InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P117')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_NONET_P115')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_NONET_P113')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_OUT1_P000')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_OUT1_P000')),(InNet('OUT1'))
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_NONET_P093')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_NONET_P093')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P103')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_NONET_P101')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P000')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNet('OUT1')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_GND_P204')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_OUT2_P173') Or  InNamedPolygon('TOP_LAYER_OUT1_P129')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_OUT1_P205')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=1.968mil) (InNamedPolygon('TOP_LAYER_OUT1_P129') Or  InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_OUT1_P129')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_VM_P085')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P237')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P129')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_OUT1_P221')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P086')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_VM_P080')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P129')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P221')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_OUT2_P211')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P085')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P121')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_OUT1_P205')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P125')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P167')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_VBAT_P165')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_NETF1_2_P203')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P167')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P229')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P171')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P086')),(All)
+Rule Violations :0
+
+Processing Rule : Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_P_IN_P174')),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+   Violation between Short-Circuit Constraint: Between Pad D4-1(3030.055mil,4602.392mil) on Top Layer And Track (2968.549mil,4602.392mil)(3030.055mil,4602.392mil) on Top Layer Location : [X = 3716.73mil][Y = 6136.392mil]
+   Violation between Short-Circuit Constraint: Between Pad Q1-3(2943.441mil,4627.5mil) on Top Layer And Track (2943.441mil,4627.5mil)(2968.549mil,4602.392mil) on Top Layer Location : [X = 3641.75mil][Y = 6156.175mil]
+Rule Violations :2
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+Rule Violations :0
+
+Processing Rule : Width Constraint (Min=6mil) (Max=100mil) (Preferred=10mil) (All)
+Rule Violations :0
+
+Processing Rule : Routing Layers(All)
+Rule Violations :0
+
+Processing Rule : Differential Pairs Uncoupled Length using the Gap Constraints (Min=10mil) (Max=100mil) (Prefered=10mil)  and Width Constraints (Min=6.299mil) (Max=15mil) (Prefered=15mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=10mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=3.937mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=5mil) ((IsPad or IsFill or IsRegion) and InAnycomponent),(All)
+Rule Violations :0
+
+Processing Rule : Component Clearance Constraint ( Horizontal Gap = 30mil, Vertical Gap = 10mil ) (All),(All) 
+Rule Violations :0
+
+Processing Rule : Component Clearance Constraint ( Horizontal Gap = 50mil, Vertical Gap = 10mil ) (InComponentClass('Logo')),(All) 
+Rule Violations :0
+
+Processing Rule : Component Clearance Constraint ( Horizontal Gap = 5mil, Vertical Gap = 10mil ) ((HasFootprint('NY PMS 440 0025 PH'))),((HasFootprint('Keystone_1902C'))) 
+Rule Violations :0
+
+Processing Rule : Component Clearance Constraint ( Horizontal Gap = 50mil, Vertical Gap = 10mil ) (InComponentClass('Mounting Holes')),(InComponentClass('FiducialMark')) 
+Rule Violations :0
+
+Processing Rule : Component Clearance Constraint ( Horizontal Gap = 0mil, Vertical Gap = 0mil ) (InComponentClass('Header')),(InComponentClass('Shunt')) 
+Rule Violations :0
+
+Processing Rule : Component Clearance Constraint ( Horizontal Gap = 40mil, Vertical Gap = 30mil ) (IsThruComponent),(IsSMTComponent) 
+Rule Violations :0
+
+Processing Rule : Component Clearance Constraint ( Horizontal Gap = 30mil, Vertical Gap = 30mil ) (IsThruComponent),(IsThruComponent) 
+Rule Violations :0
+
+Processing Rule : Component Clearance Constraint ( Horizontal Gap = 250mil, Vertical Gap = Infinite ) (InComponentClass('Mounting Holes')),(All) 
+Rule Violations :0
+
+Processing Rule : Component Clearance Constraint ( Horizontal Gap = 14.961mil, Vertical Gap = 10mil ) (HasFootprint('0201*') or HasFootprint('0402*') or HasFootprint('0508') or HasFootprint('0603*') or HasFootprint('0612') or HasFootprint('0805*') or HasFootprint('0815*') or HasFootprint('0830*') or HasFootprint('1206*') or HasFootprint('1210*') or HasFootprint('1808*') or HasFootprint('1812*') or HasFootprint('1825*') or HasFootprint('2010*') or HasFootprint('2220*') or HasFootprint('2225*') or HasFootprint('2512*') or HasFootprint('2728*') or HasFootprint('3518*')),(HasFootprint('0201*') or HasFootprint('0402*') or HasFootprint('0508') or HasFootprint('0603*') or HasFootprint('0612') or HasFootprint('0805*') or HasFootprint('0815*') or HasFootprint('0830*') or HasFootprint('1206*') or HasFootprint('1210*') or HasFootprint('1808*') or HasFootprint('1812*') or HasFootprint('1825*') or HasFootprint('2010*') or HasFootprint('2220*') or HasFootprint('2225*') or HasFootprint('2512*') or HasFootprint('2728*') or HasFootprint('3518*')) 
+Rule Violations :0
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+Waived Violations Of Rule : Silk To Solder Mask (Clearance=3.937mil) (All),(All)
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (2.11mil < 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3776.994mil,2443.409mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [2.11mil]Waived by Jacob Thompson at 11/21/2022 4:35:48 PMCaution hot surface under DRV chip - Silk to solder mask
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (3.396mil < 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3776.994mil,2486.716mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [3.396mil]Waived by Jacob Thompson at 11/21/2022 4:35:48 PMCaution hot surface under DRV chip - Silk to solder mask
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (Collision < 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3820.301mil,2443.409mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mil]Waived by Jacob Thompson at 11/21/2022 4:35:48 PMCaution hot surface under DRV chip - Silk to solder mask
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (0.231mil < 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3820.301mil,2486.716mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0.231mil]Waived by Jacob Thompson at 11/21/2022 4:35:48 PMCaution hot surface under DRV chip - Silk to solder mask
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (Collision < 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3863.608mil,2443.409mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mil]Waived by Jacob Thompson at 11/21/2022 4:35:48 PMCaution hot surface under DRV chip - Silk to solder mask
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (Collision < 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3863.608mil,2486.716mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mil]Waived by Jacob Thompson at 11/21/2022 4:35:48 PMCaution hot surface under DRV chip - Silk to solder mask
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (Collision < 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3906.916mil,2443.409mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mil]Waived by Jacob Thompson at 11/21/2022 4:35:48 PMCaution hot surface under DRV chip - Silk to solder mask
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (3.43mil < 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3906.916mil,2486.716mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [3.43mil]Waived by Jacob Thompson at 11/21/2022 4:35:48 PMCaution hot surface under DRV chip - Silk to solder mask
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (1.479mil < 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3950.223mil,2443.409mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [1.479mil]Waived by Jacob Thompson at 11/21/2022 4:35:48 PMCaution hot surface under DRV chip - Silk to solder mask
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (Collision < 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3950.223mil,2486.716mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mil]Waived by Jacob Thompson at 11/21/2022 4:35:48 PMCaution hot surface under DRV chip - Silk to solder mask
+Waived Violations :10
+
+Waived Violations Of Rule : Silk To Solder Mask (Clearance=5mil) ((IsPad or IsFill or IsRegion) and InAnycomponent),(All)
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (0.933mil < 5mil) Between Pad TP18-1(1431.475mil,2041.576mil) on Multi-Layer And Text "TP19" (1392mil,2058mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.933mil]Waived by Jacob Thompson at 11/17/2022 3:09:41 PMTP19-TP23 labels
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (4.834mil < 5mil) Between Pad TP20-1(1432mil,2105.051mil) on Multi-Layer And Text "TP21" (1392mil,2125.771mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.834mil]Waived by Jacob Thompson at 11/17/2022 3:09:41 PMTP19-TP23 labels
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (4.402mil < 5mil) Between Pad TP22-1(1434mil,2168.525mil) on Multi-Layer And Text "TP21" (1392mil,2125.771mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.402mil]Waived by Jacob Thompson at 11/17/2022 3:09:41 PMTP19-TP23 labels
+   Waived Violation between Silk To Solder Mask Clearance Constraint: (2.763mil < 5mil) Between Pad TP22-1(1434mil,2168.525mil) on Multi-Layer And Text "TP23" (1389mil,2188mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.763mil]Waived by Jacob Thompson at 11/17/2022 3:09:41 PMTP19-TP23 labels
+Waived Violations :4
+
+Waived Violations Of Rule : Component Clearance Constraint ( Horizontal Gap = 30mil, Vertical Gap = 10mil ) (All),(All) 
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component H1_Nut-9605 (255.905mil,255.905mil) on Top Layer And SMT Small Component H1-4822 (255.905mil,255.905mil) on Bottom Layer Waived by Jacob Thompson at 11/17/2022 2:54:02 PMHex nuts on standoffs
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component H2_Nut-9605 (4744.095mil,255.905mil) on Top Layer And SMT Small Component H2-4822 (4744.095mil,255.905mil) on Bottom Layer Waived by Jacob Thompson at 11/17/2022 2:54:02 PMHex nuts on standoffs
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component H3_Nut-9605 (4744.095mil,4744.095mil) on Top Layer And SMT Small Component H3-4822 (4744.095mil,4744.095mil) on Bottom Layer Waived by Jacob Thompson at 11/17/2022 2:54:02 PMHex nuts on standoffs
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component H4_Nut-9605 (255.905mil,4744.095mil) on Top Layer And SMT Small Component H4-4822 (255.905mil,4744.095mil) on Bottom Layer Waived by Jacob Thompson at 11/17/2022 2:54:02 PMHex nuts on standoffs
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J10-60900213421 (2519.26mil,3190.809mil) on Top Layer And SMT Small Component SH-J13-60900213421 (2519.26mil,3089.265mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J10-60900213421 (2519.26mil,3190.809mil) on Top Layer And SMT Small Component SH-J7-60900213421 (2519.26mil,3292.352mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J11-60900213421 (2519.26mil,2987.721mil) on Top Layer And SMT Small Component SH-J13-60900213421 (2519.26mil,3089.265mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J11-60900213421 (2519.26mil,2987.721mil) on Top Layer And SMT Small Component SH-J14-60900213421 (2519.26mil,2886.177mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J12-60900213421 (1270mil,3385.827mil) on Top Layer And SMT Small Component SH-J15-60900213421 (1170.4mil,3385.827mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J15-60900213421 (1170.4mil,3385.827mil) on Top Layer And SMT Small Component SH-J9-60900213421 (1070.8mil,3385.827mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J1-60900213421 (2519.26mil,3596.984mil) on Top Layer And SMT Small Component SH-J2-60900213421 (2519.26mil,3495.44mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J16-60900213421 (2519.26mil,2331.711mil) on Top Layer And SMT Small Component SH-J19-60900213421 (2519.26mil,2233.799mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J16-60900213421 (2519.26mil,2331.711mil) on Top Layer And SMT Small Component SH-J8-60900213421 (2519.26mil,2429.623mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J17-60900213421 (2519.26mil,2037.975mil) on Top Layer And SMT Small Component SH-J20-60900213421 (2519.26mil,1940.063mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J17-60900213421 (2519.26mil,2037.975mil) on Top Layer And SMT Small Component SH-J22-60900213421 (2519.26mil,2135.887mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J18-60900213421 (2519.26mil,1744.239mil) on Top Layer And SMT Small Component SH-J21-60900213421 (2519.26mil,1842.151mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J19-60900213421 (2519.26mil,2233.799mil) on Top Layer And SMT Small Component SH-J22-60900213421 (2519.26mil,2135.887mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J20-60900213421 (2519.26mil,1940.063mil) on Top Layer And SMT Small Component SH-J21-60900213421 (2519.26mil,1842.151mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J2-60900213421 (2519.26mil,3495.44mil) on Top Layer And SMT Small Component SH-J4-60900213421 (2519.26mil,3393.896mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J3-60900213421 (871.6mil,3385.827mil) on Top Layer And SMT Small Component SH-J6-60900213421 (971.2mil,3385.827mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J4-60900213421 (2519.26mil,3393.896mil) on Top Layer And SMT Small Component SH-J7-60900213421 (2519.26mil,3292.352mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+   Waived Violation between Component Clearance Constraint: (Collision < 30mil) Between SMT Small Component SH-J6-60900213421 (971.2mil,3385.827mil) on Top Layer And SMT Small Component SH-J9-60900213421 (1070.8mil,3385.827mil) on Top Layer Waived by Jacob Thompson at 11/17/2022 2:54:24 PMShunt on Header
+Waived Violations :22
+
+Waived Violations Of Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+   Waived Violation between Height Constraint: SMT Small Component H1-4822 (255.905mil,255.905mil) on Bottom Layer Actual Height = 1250.6milWaived by Jacob Thompson at 11/17/2022 2:54:38 PMHex standoffs
+   Waived Violation between Height Constraint: SMT Small Component H2-4822 (4744.095mil,255.905mil) on Bottom Layer Actual Height = 1250.6milWaived by Jacob Thompson at 11/17/2022 2:54:38 PMHex standoffs
+   Waived Violation between Height Constraint: SMT Small Component H3-4822 (4744.095mil,4744.095mil) on Bottom Layer Actual Height = 1250.6milWaived by Jacob Thompson at 11/17/2022 2:54:38 PMHex standoffs
+   Waived Violation between Height Constraint: SMT Small Component H4-4822 (255.905mil,4744.095mil) on Bottom Layer Actual Height = 1250.6milWaived by Jacob Thompson at 11/17/2022 2:54:38 PMHex standoffs
+Waived Violations :4
+
+
+Violations Detected : 2
+Waived Violations : 40
+Time Elapsed        : 00:00:21

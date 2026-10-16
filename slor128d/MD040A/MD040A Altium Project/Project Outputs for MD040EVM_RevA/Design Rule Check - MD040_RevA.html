@@ -1,0 +1,907 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 9em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD23\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">5/22/2023</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">3:39:37 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:21</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc" class="file"><acronym title="C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc">C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">2</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Waived Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">40</td></tr>
+</table>
+</td>
+</table><a name="IDVSHCDZ5ZTDAFJE4Z5KY1MQDENLIINLLTB0UW3S5T3A1D0IXNOCG"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDOLNULTHTNYNMF0JA4YUKNZSJHCBGLXRJVF3FLRHETHFAECTYNC5M">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_VM_P160')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDP1OO4ZQRDTM4ENQTQAEW4L4F0GWOJYYHR1323IHXTQQCAMX04RZN">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_GND_P162')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID2XGBGBFAXZSDLZGWMHJHJMV2OL40EI4UJUE2JDIEEL21OAWJWZXC">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_1_VM_P146')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2K3DDHCRCZXNFLHQXLUVNZ1GCYNYQNHZGXERQD12H0MWVTOWJDE">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_NONET_P138')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUOYXYKF25GMFBQG3EB2C0KNGBENY2KJSTJKR54JCV3DMBMHUMD2">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_VM_P166')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKZVTZLQDCVGGP4H0GTFRHTRSCNXEFWQKRFOMCBNRDBTPWD5RO0UI">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_OUT2_P163')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHR4GFDDCR2C1MGX3O5HSMWOQYNOMSZ2TIGG2IAV0VH2Q5FHBPI">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_OUT1_P164')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZ3NN2FAUYRXUGX5LQ0AWCPWEXFQBG1KQO5MAHKHE1QFX3UNEOTLB">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_VM_P235')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3AEI0SX0R30JMNCZGXOIXQU30N00QJJ5OF1VWENDSZT5MV1B32KH">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P076')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRR33FENG1TEKL3TV1OQGLPB2BGXB0D44E4HKT2M4BBOEOUUW0QBD">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_GND_P082')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNB04K4MTG1UOO0Q20CQLZMPRE0LXQ5JS1FFUZIOEHR1KFYSSNKP">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P127') Or  InNamedPolygon('TOP_LAYER_VM_P085')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDSADVR2UE3D1ROO01QJOAIRNRFGQ4YBDP3P343WGGRSOFNZF3ZJMP">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P087')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIBSX0OLQJ32DNKOHLXJT5PFLYIFDZVFZ5YZ13RPJTKSPYWLSWAGH">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_1_VM_P148') Or  InNamedPolygon('SIGNAL_LAYER_1_VM_P148')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDY5ZQ5R1I51CVKWTNIYPHZFTCPCVJ0TPYTO0YUIIB2Q05R1NXUPOK">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_GND_P156')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDYPULYRB2LQ5UOEBJXEJSTF03DIOKYNRU3I1XTPCXF3JKMAIJ41VH">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_NONET_P138')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4IYEYESJHUEXGX0E3GX0UNNXBGLEUM0LPAAEG5J3C3DJNWUGJM1C">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_1_GND_P154')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJT1QIEMR2GBFBKQDB1IMZ4LCIKQLNJQRT5JY5XJTJUFJHJWN3IVL">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VBAT_P223')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJBWQPN5XCGP2BXGRYCU50CNDRIG5ZETATS1OBLOOHFVY2VIOK0ZP">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_NETF1_2_P207')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHP4TSD5FNKW5PWVFHLUN0LDNEBPG0VHWKWOFIJ2UCIBVQXPURNG">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P086')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZGIKORLJA22JNZZ12QOVBNC5RLUVAXI1B1HYQAMNP1ZLHVBGLG0J">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_P_IN_P227')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBDFXTJPB2COAMD04BEHVY1DDTFBQVLVONXCIBYBH2IR1DPKYWLUF">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_VBAT_P197')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDDZRTFXECTUCKEST4B31Y14HLJIYY1CL5CN3THDMXO3JTZ5YXGNM">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_NETF1_2_P196')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBX3YR2YFZ1Q0COTJUHNMJSQYJJU1O4X04HUN2EFTHIOB4OYTFXAM">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_3V3_P194')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDRMO3TGA1RXIKE4X0ZAUDDPQGHJ21WFDD3LVMGQGFSFFUXZRHPASG">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_P_IN_P198')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDCJEGB0WXA3QHIK4MD41CHUARKRQSNQ41JNS5JNLUQRDZRHTIIPC">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_1_GND_P184')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJ2SKJ1KBZK4TOXONYH2EBEOTLEXNOAC0XCGNKSDSLPTUN1E3UTAC">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_1_GND_P190')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDV0XEAYOUHKZNC5HZTQ0N45E5KNSL2SZ4XGJ2FLD0H1JPGCJJ3TNE">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_GND_P241')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMRVN1X20S3CBJWAZENGNK3GTXC3MZZDGU4ESRFMPFVHWMI0GB2AH">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_GND_P241')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID015JHVYQHYV3OC5RROHTWCEV0MZBENZRITSJOBKOA52G2MQ053OP">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_EZFET_VBUS_P136')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDRQHARJFNEYLNFXFPCPZXO2FUGEHQVH31EYHGLPAGSQEFJWZ3VVE">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_VM_P177') Or  InNamedPolygon('SIGNAL_LAYER_2_VM_P179') Or  InNamedPolygon('SIGNAL_LAYER_2_VM_P160') Or  InNamedPolygon('SIGNAL_LAYER_2_VM_P175') Or  InNamedPolygon('SIGNAL_LAYER_2_VM_P181')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID02SQ4QSWR0LSJS0M4JTB5BB0YGWRBCOVL45RVKMWWPR15MACLKCI">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_MCU_3V3_P192')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFSLPTMRL3DC2HC4CPWJFHEJG5BDE1FDF1VIXC1JPXP41JLCJBHWO">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_EZFET_VCC_P132')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDH1MVRDI21PJD1USV1EUQ1DI3HSFHPJYPE0MILXSVDSQMAVX4EF">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_NONET_P089') Or  InNamedPolygon('TOP_LAYER_NONET_P090')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQEOGT3EKVKA1NLNCGT0NFWHBKIOCJR1UPBAR4IGNTK1UDTNEBNGP">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_NONET_P079') Or  InNamedPolygon('SIGNAL_LAYER_2_NONET_P078') Or  InNamedPolygon('SIGNAL_LAYER_1_NONET_P077') Or  InNamedPolygon('TOP_LAYER_NONET_P083') Or  InNamedPolygon('BOTTOM_LAYER_NONET_P072') Or  InNamedPolygon('SIGNAL_LAYER_2_NONET_P070') Or  InNamedPolygon('SIGNAL_LAYER_1_NONET_P059') Or  InNamedPolygon('TOP_LAYER_OUT2_P058') Or  InNamedPolygon('BOTTOM_LAYER_NONET_P056') Or  InNamedPolygon('SIGNAL_LAYER_2_NONET_P054') Or  InNamedPolygon('SIGNAL_LAYER_1_NONET_P052') Or  InNamedPolygon('TOP_LAYER_OUT1_P050') Or  InNamedPolygon('BOTTOM_LAYER_VM_P044') Or  InNamedPolygon('SIGNAL_LAYER_2_VM_P042') Or  InNamedPolygon('SIGNAL_LAYER_1_VM_P040') Or  InNamedPolygon('TOP_LAYER_VM_P038') Or  InNamedPolygon('BOTTOM_LAYER_VM_P036') Or  InNamedPolygon('SIGNAL_LAYER_2_VM_P018') Or  InNamedPolygon('SIGNAL_LAYER_1_VM_P016') Or  InNamedPolygon('TOP_LAYER_VM_P002')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDS5Z4UFYWIYPEJMR5GBPJZGPZVDAZKYX2TZMH4LGMEXC1KS5YGIQE">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_NONET_P072')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDGXSHIEMJXZZQHPZKSWX4XXKRBLCTWXUKPUFFLOIHWPXGGFNQ5CUH">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_EZFET_USB_SHIELD_P002') Or  InNamedPolygon('TOP_LAYER_EZFET_USB_SHIELD_P201') Or  InNamedPolygon('SIGNAL_LAYER_2_EZFET_VBUS_P018') Or  InNamedPolygon('SIGNAL_LAYER_2_EZFET_VCC_P016')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIXAXLQGGLY3UL4UFGMKGUFN0TLZA3WKPGOO2YCEJN1O2CB2TDJ1O">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P099')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3HYDKDO5L4Z3OXEQMMGG0WXGCCUNG44OHOQJSSFQ2UUUPKFQQFJ">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P099')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWY02IJ5M3FEVEFAPKXMQGV1PHNTYHCH3T24UKQKPLOTRHRGJGMR">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P000')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDBXCUKRJP25P3NCAEYEFWB1GFIDYGDWOBH3JHMGHVC0JQBTFAKCKB">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P000')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDP1DLG22ESHFFKQMDTSSU0VP32H5BLNBEAIW5NZCB1SJWQSRNPD1D">Clearance Constraint (Gap=0mil) (IsKeepOut and InComponentClass('FiducialMark')),(IsPad and InComponentClass('FiducialMark'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDM00EUNMFEHCOJGRXQ5DZN4EQKGVV11J1SD4JVMIRUYU20TBKDJO">Clearance Constraint (Gap=7.874mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZT3YDYH5B0VHIBXKCXTEQ1YINLYRMLQWSJDD0LBRDUJG3TGRIUD">Clearance Constraint (Gap=0mil) (((IsTrack Or IsArc) And Not InPoly) And IsFree and IsKeepOut),(((IsTrack Or IsArc) And Not InPoly) And IsFree and IsKeepOut)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0U4KHQPZHR4HOSPFX4MEEKXKNDMSJCMGC5KZD4O4FUO1PGZRTQWB">Clearance Constraint (Gap=25mil) (InPolygon),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSGV4PJRLVXT5BY3VWNLKSTHIPH2XPLAJVHEDO0OBKPLDV1K0JFIK">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P042') Or  InNamedPolygon('TOP_LAYER_VM_P044') Or  InNamedPolygon('TOP_LAYER_OUT2_P040') Or  InNamedPolygon('TOP_LAYER_OUT1_P038')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0WP2ZHEXNSOH3QZF4AAUFRLWB1GGVOBTSATZUSYQ4IOI2IJQ1P">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P123') Or  InNamedPolygon('TOP_LAYER_VM_P123') Or  InNamedPolygon('TOP_LAYER_VM_P123')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDV5NH0TAPCBKXGRMH1IHGDR1QHG3F3NG5ITD31VE40NOCRPGYAYZJ">Clearance Constraint (Gap=5.984mil) (InNamedPolygon('TOP_LAYER_VM_P046')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTACZ2QXKB4TAGW5QWXHAXMYK5GWLYYZLGK41OQDEOZIZNSBGVKFF">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P040')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZRBQGWZP2IPNHZE3I3HND3HDTJF2QPV1O0X4AHKKESJ3EE2PMM0D">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_NONET_P083')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHNIP2MVRQGBKKODG51ORZ00FUM33TUFQY11BR3FNCD3XTMA2GJEN">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_1_NONET_P111')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMKNSRJKJZRRAM41SWLKSUY4G2N1BYOCI1QGVN3MD1ZUC2VDBSWO">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P107')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDK23TMDMFAQGPIXC2WHXP1DM0IMAB5D0R4ACHSBKQIACWLHMK5INL">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_NONET_P105')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDAO0MYT0HCD2REKYANAM5QUWTJBRKTTPRCW2PH3JW0EPL1MC0HOXD">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P129') Or  InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQG4ELHWDR4ACM0VFBM4RASHAZCUCGCZNL1MUOFE4RSLOCH2A4EG">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P117')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID35YBVN2OKD0MDQ4D2UPNNJWF3BYYHCKHVS04YZM4A1SZODN1NEGE">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_NONET_P115')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDP0XRJTGSZKBZFECDTE4Z3HQNFPOFHA3M2F333EJNBLDF0HZPEGAI">Clearance Constraint (Gap=10mil) (InNamedPolygon('SIGNAL_LAYER_2_NONET_P113')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSORDQJUMG04PDNBX4D10HSX3APL4X3D4OIC2IYOMLOQWYWINL0GJ">Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_OUT1_P000')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJ51VDE132PN5PPXSQBCM54VLAE2QIGBDMXNTP5BL2UN1AUKS5QTJ">Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_OUT1_P000')),(InNet('OUT1'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDZLFFCAMK3VRNPNKI3L5ZKCGCOGPPLXXQY013RJLDBT0DQ4GPSAXB">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_NONET_P093')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1UIEWSD1C1AUCNYS5EZ3IMVTCIM5IYPMADJ53LP5DMIQZN0BWHGK">Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_NONET_P093')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNINQCRLYYK1LLS53ZYNMITMKLKGMD5W51HBWGVDY5HNORCCWP2PO">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P103')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID15FE0MEXW2W5EAJKRD2AX2YVWKA4HQBB5FCCO1JHEEMDVN5C5MEB">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_NONET_P101')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDLNLV1VMFDYDBC0TFHYYAZWG4OHREER5GGO3DXEU00EZAKMPGW1H">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P000')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0MJXR4HO5IZDEDXA21OAWIAOYDWERIL13PHYJFO4I4PGCNVYGQUK">Clearance Constraint (Gap=10mil) (InNet('OUT1')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDB2U1UR11PQNHLM5FUAZF3SE2ZDKUFUOXXCC24MMPNVAARJARA4FI">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_GND_P204')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYZAWAOXM13URDTZK5KGW5TWKFEXO1ZIVNBSA2IBR2DS5F12F4XDG">Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_OUT2_P173') Or  InNamedPolygon('TOP_LAYER_OUT1_P129')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID1XFRV3CMO5S0LZU5NSKXZUKAVBIADUS50XZXFRCOR2IXFKONISCK">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIVOOW1H4EHYXUWXPBJ2IRM4IJLA5A3Z54XWMRG3042UJ1AWP2GP">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_OUT1_P205')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMWDF3LGDBWRXE2L3VX40KUKLGCIGS1EUQ5KCXYDWHOGHH3GVBNPM">Clearance Constraint (Gap=1.968mil) (InNamedPolygon('TOP_LAYER_OUT1_P129') Or  InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVDSVWQGAU5PCKU2OQORBVWSSDDJKCCSFGIICPRNIAIYWC0ENS1UG">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID1H4R4K0XDVCXCJPSJDAZLODQDHJRQIYE4VH3ORG40VL4WOXPV1UI">Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMLGALUIZ41EEHUDFGKXKT30QZMS5CUOMGOGWPXVSXFVSK1AKHOC">Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_OUT1_P129')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDU2OJ1FYNVUA0OTSZIJG2NX5AJDEKL53HDVM3WLM432BVBLTTBMZL">Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_VM_P085')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDDVVXIAMLKG4SH0GGYDBC0OSZYPO1JYQTEHYU3YMHKTDBRUK5KOAG">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P237')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDV1OMDUIT2SAEH41E2KV3EE1OJBY5YEPFSF4L2QNWYZP1CAG0NCJ">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P129')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2O032QN23XFIJHNRSLQ21NMEFNPFSCO342NBHBKAZRGLTPVV3MQE">Clearance Constraint (Gap=3.937mil) (InNamedPolygon('TOP_LAYER_OUT1_P221')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0VUSAFQQJ2W2G0F4XM10O410LCZ1IDQAJRSVNTJ2MXVSWDSWCKXM">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P086')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4AF0CO1EZDTSBQ1FAC4GJGMUDLKOL5JX02DRIQHXMVND3WR4PGMK">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_VM_P080')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDGBSRL0RR2EE5XEFJIBG2JP4PIUZVHOBXGH54MNR530GX4CA5LL">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P129')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHJI03EWEOIO5JSU1YYCFVVF2DFPIJ3EZ5ZQLFNA2WSIJVXX4AWF">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT1_P221')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0CNKB4SQ214ZF0YIVTA0NS2HINTJ0JONM3IUSJOZWIRY5UQYRZQJ">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_OUT2_P211')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDPALPF3JXT2DFPBURGFR4RX5ISG3CXX0VBHHRLND0XIXJFASBDNZD">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSJKG1A5ZDDTBDTBLVQCNJJUWFHZ1GWJX14YGVKLN5W00H2EH22OI">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P085')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOFP312M10GO4DWKBK3DKHNK4DBEI4HLY0BEN0CJPSMJTU0ZQQVSP">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P121')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDULMZK1DW2LOBNBU2SASYLHRMLBZS0S4EB5VXKUEW3AXD3IYDE1">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTGHQCYZBQQ4PIKTA2GXOIKN3GPRY5IXRBOTIKVBOCRZUTRBZYZIP">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_OUT2_P173')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDFHDC0CBMU530P0XOQGTW1UE1H2YRQ4HLKOPDGC03BOR43S4FJF">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_OUT1_P205')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDB331I2205AYTNMJQAGP2S0UIDOLSBLS0WMAPCCF0YX50XFYTZYQP">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P125')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDMM2GCUKAS5MKE1FJI0B4RE3VXDKE0P1PLBD30TGMA20XIYH3H1IG">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P167')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDFXISPDOX1O3XOHOYKDOPRKDRBMX5RYHUSWCB4QNHJZC1JPYQQGZC">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_VBAT_P165')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDWSJMIK3T3VQ5243YN22FOMG5DVTH4GP1QTC0CHRBQV5WPZEEK0P">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_NETF1_2_P203')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID3N5XW5LVLTAKUZI1UCOVXEFXNN5IGABQBVUAXPYYRQFNL3JJJYE">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P167')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNWPGDRSXNGKMLVOXKPSMTTSOTKZ2VDCI2GPJ15IYNJCZU3GAKMRG">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P229')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNMIJUY3UWWBSDTZPHTJAZLB44B41AHD4AD2UXLZA5ICN05OUUQP">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_VM_P171')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDBCAVXXZAC45GE1YJALKULEFBRJ335HORHY4NE0BLWDTWBCFR4E5L">Clearance Constraint (Gap=10mil) (InNamedPolygon('TOP_LAYER_GND_P086')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAOOCTOMRJH0WMICHRA1VK3GC2GUJ0D0RBQDX31CL5XFSKPTDZSSI">Clearance Constraint (Gap=10mil) (InNamedPolygon('BOTTOM_LAYER_P_IN_P174')),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDZPPXBW3AHDAEQMDV33N0RCFMNE1M0NIXA4HJXL1431TLNBQIS1E">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDES1RDWD4NGSGBSUDQDUQVWO20NDYACFVQK5GQKK1FBIPGLUBSNB">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDM3WJ22VDGYMRER5DKZCUXSH4G513SGRR2F0RVLFT1FGWD32CX5L">Width Constraint (Min=6mil) (Max=100mil) (Preferred=10mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDP55MZLJ1KFC0MD143H1DZNFK3IJKEOKBZ3RQGTBP4FNE2MTMS2WC">Routing Layers(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID11ZWCP4FRNLGIMCFCUKMGS55IOGZODXAJJV44PLAOLQT3FFTCSZC">Differential Pairs Uncoupled Length using the Gap Constraints (Min=10mil) (Max=100mil) (Prefered=10mil)  and Width Constraints (Min=6.299mil) (Max=15mil) (Prefered=15mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDU0QWA3ODO4SQLXQORB5CZROWTMMBOZPKKKDZMMF0UHSBBG3XG24J">Power Plane Connect Rule(Relief Connect )(Expansion=10mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVR2XFA350GBIBWISUPZUX34B4HYWMGFAYNYB33COSCOAOCASQPQI">Hole To Hole Clearance (Gap=10mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMU2GNRABAE13KBG2T5VDULH0JLDBM2IO40LWWIUSHNAAUANAZVM">Silk To Solder Mask (Clearance=3.937mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUJQQEXJAOT5WNN2M2SJPEUE5DNBMUPOJ4ZWWU0PJMZNTKB540ULF">Silk To Solder Mask (Clearance=5mil) ((IsPad or IsFill or IsRegion) and InAnycomponent),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDAPG5DARQQEWOPAHHRNUY0UHFFBEBFHQMWYU5JLFYPYW5EQUS2RLM">Component Clearance Constraint ( Horizontal Gap = 30mil, Vertical Gap = 10mil ) (All),(All) </a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDUQFAUAHOPJXABNAVCVD2UAG35MIQGVCU3H0RTKND5GRII0HWUCIB">Component Clearance Constraint ( Horizontal Gap = 50mil, Vertical Gap = 10mil ) (InComponentClass('Logo')),(All) </a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDTYV020WJPZUCKBZLEYUX0HGOZC51V4SI53Z1NMMA5QGXNJDIJZL">Component Clearance Constraint ( Horizontal Gap = 5mil, Vertical Gap = 10mil ) ((HasFootprint('NY PMS 440 0025 PH'))),((HasFootprint('Keystone_1902C'))) </a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCDFC3T1CTP0UEEFUPAZJJ1R22KD5YZ4BBQ5XTQBOSS2IPWCXCMTF">Component Clearance Constraint ( Horizontal Gap = 50mil, Vertical Gap = 10mil ) (InComponentClass('Mounting Holes')),(InComponentClass('FiducialMark')) </a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDXO11I3CXDJIQBT2KSK3FZNLVZPAIBKA2NQCU52HYTIVR3WQC3TZK">Component Clearance Constraint ( Horizontal Gap = 0mil, Vertical Gap = 0mil ) (InComponentClass('Header')),(InComponentClass('Shunt')) </a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID3NMBZVPL15MPGJC2DR05W5NMF3TKXOQ0MJJTSJXRLKX1O2HASGE">Component Clearance Constraint ( Horizontal Gap = 40mil, Vertical Gap = 30mil ) (IsThruComponent),(IsSMTComponent) </a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHYMTA5CCH253HN3W1UM3ZK1A00135N35ZNJYSNZCQKCSNQDAYHF">Component Clearance Constraint ( Horizontal Gap = 30mil, Vertical Gap = 30mil ) (IsThruComponent),(IsThruComponent) </a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDRQNPU0OY4QRGH0UFJQFIH44YBJA5IGS3ZS4AGMK3ZMATH0LLPA5I">Component Clearance Constraint ( Horizontal Gap = 250mil, Vertical Gap = Infinite ) (InComponentClass('Mounting Holes')),(All) </a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4NVWARO4OCDYEK1EP0Z4OBC1BFXO1EPC1DAX3SCCYI2LD144OPRL">Component Clearance Constraint ( Horizontal Gap = 14.961mil, Vertical Gap = 10mil ) (HasFootprint('0201*') or HasFootprint('0402*') or HasFootprint('0508') or HasFootprint('0603*') or HasFootprint('0612') or HasFootprint('0805*') or HasFootprint('0815*') or HasFootprint('0830*') or HasFootprint('1206*') or HasFootprint('1210*') or HasFootprint('1808*') or HasFootprint('1812*') or HasFootprint('1825*') or HasFootprint('2010*') or HasFootprint('2220*') or HasFootprint('2225*') or HasFootprint('2512*') or HasFootprint('2728*') or HasFootprint('3518*')),(HasFootprint('0201*') or HasFootprint('0402*') or HasFootprint('0508') or HasFootprint('0603*') or HasFootprint('0612') or HasFootprint('0805*') or HasFootprint('0815*') or HasFootprint('0830*') or HasFootprint('1206*') or HasFootprint('1210*') or HasFootprint('1808*') or HasFootprint('1812*') or HasFootprint('1825*') or HasFootprint('2010*') or HasFootprint('2220*') or HasFootprint('2225*') or HasFootprint('2512*') or HasFootprint('2728*') or HasFootprint('3518*')) </a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDDTLG55VFMDHGI0QN5JJVKCQFXM0X5PFTCQIDTLEVWLXXSEYJGZEN">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">2</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Waived Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDOSJSZCMPTCWNFSHEYQL35OL2IEL4U3JCHE5F5EWWEW3YLKIWRCM">Silk To Solder Mask (Clearance=3.937mil) (All),(All)</a></td>
+<td class="column2">10</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDQADMOIQ3AQI5OVSSIU3BB3FLOE3QRDXJ0EPLAIIHUW1CZUWVWSFB">Silk To Solder Mask (Clearance=5mil) ((IsPad or IsFill or IsRegion) and InAnycomponent),(All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDSPWWIVABIIB3MC2GAZQDRX4KJCATI4IDLEXC2CKI2SG5F1OA3PNL">Component Clearance Constraint ( Horizontal Gap = 30mil, Vertical Gap = 10mil ) (All),(All) </a></td>
+<td class="column2">22</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCULKWU1VB2N1PKOCEZTPYSXKDBVOX4JT1DEFGFCFJCFT0IZQF2SN">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">40</td>
+</tr>
+</table><br><a name="ID5FOGWONJWP5YEZZXJNYZYIMBQEK4MACLQ2T4OSJUHIT1COFWOHFG"><h2>Rule Violations</h2></a><a name="IDDZPPXBW3AHDAEQMDV33N0RCFMNE1M0NIXA4HJXL1431TLNBQIS1E"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Short-Circuit Constraint (Allowed=No) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3703.627mil|Location2.X=3729.833mil|Location1.Y=6123.289mil|Location2.Y=6149.494mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3703.627mil|Location2.X=3729.833mil|Location1.Y=6123.289mil|Location2.Y=6149.494mil|Absolute=True">Short-Circuit Constraint: Between Pad D4-1(3030.055mil,4602.392mil) on Top Layer And Track (2968.549mil,4602.392mil)(3030.055mil,4602.392mil) on Top Layer Location : [X = 3716.73mil][Y = 6136.392mil]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3624.798mil|Location2.X=3658.702mil|Location1.Y=6139.223mil|Location2.Y=6173.127mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3624.798mil|Location2.X=3658.702mil|Location1.Y=6139.223mil|Location2.Y=6173.127mil|Absolute=True">Short-Circuit Constraint: Between Pad Q1-3(2943.441mil,4627.5mil) on Top Layer And Track (2943.441mil,4627.5mil)(2968.549mil,4602.392mil) on Top Layer Location : [X = 3641.75mil][Y = 6156.175mil]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDAZGHFT2THIMLF0NN4IPRSYET4LJBTFPKYTRNN5MRH2EWBY5H3F1I"><h2>Waived Violations</h2></a><a name="IDOSJSZCMPTCWNFSHEYQL35OL2IEL4U3JCHE5F5EWWEW3YLKIWRCM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Silk To Solder Mask (Clearance=3.937mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4477.298mil|Location2.X=4482.485mil|Location1.Y=3974.816mil|Location2.Y=3980.003mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4477.298mil|Location2.X=4482.485mil|Location1.Y=3974.816mil|Location2.Y=3980.003mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.11mil &lt; 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3776.994mil,2443.409mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [2.11mil]</acronym></a><br>Waived by Jacob Thompson at 11/21/2022 4:35:48 PM<br>Caution hot surface under DRV chip - Silk to solder mask</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4477.127mil|Location2.X=4483.81mil|Location1.Y=4013.867mil|Location2.Y=4023.213mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4477.127mil|Location2.X=4483.81mil|Location1.Y=4013.867mil|Location2.Y=4023.213mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (3.396mil &lt; 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3776.994mil,2486.716mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [3.396mil]</acronym></a><br>Waived by Jacob Thompson at 11/21/2022 4:35:48 PM<br>Caution hot surface under DRV chip - Silk to solder mask</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4524.121mil|Location2.X=4527.746mil|Location1.Y=3975.597mil|Location2.Y=3979.222mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4524.121mil|Location2.X=4527.746mil|Location1.Y=3975.597mil|Location2.Y=3979.222mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3820.301mil,2443.409mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mil]</acronym></a><br>Waived by Jacob Thompson at 11/21/2022 4:35:48 PM<br>Caution hot surface under DRV chip - Silk to solder mask</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4517.993mil|Location2.X=4524.799mil|Location1.Y=4012.599mil|Location2.Y=4020.945mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4517.993mil|Location2.X=4524.799mil|Location1.Y=4012.599mil|Location2.Y=4020.945mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.231mil &lt; 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3820.301mil,2486.716mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0.231mil]</acronym></a><br>Waived by Jacob Thompson at 11/21/2022 4:35:48 PM<br>Caution hot surface under DRV chip - Silk to solder mask</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4544.115mil|Location2.X=4547.739mil|Location1.Y=3975.597mil|Location2.Y=3979.222mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4544.115mil|Location2.X=4547.739mil|Location1.Y=3975.597mil|Location2.Y=3979.222mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3863.608mil,2443.409mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mil]</acronym></a><br>Waived by Jacob Thompson at 11/21/2022 4:35:48 PM<br>Caution hot surface under DRV chip - Silk to solder mask</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4554.112mil|Location2.X=4557.736mil|Location1.Y=4012.178mil|Location2.Y=4015.803mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4554.112mil|Location2.X=4557.736mil|Location1.Y=4012.178mil|Location2.Y=4015.803mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3863.608mil,2486.716mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mil]</acronym></a><br>Waived by Jacob Thompson at 11/21/2022 4:35:48 PM<br>Caution hot surface under DRV chip - Silk to solder mask</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4584.102mil|Location2.X=4587.727mil|Location1.Y=3975.597mil|Location2.Y=3979.222mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4584.102mil|Location2.X=4587.727mil|Location1.Y=3975.597mil|Location2.Y=3979.222mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3906.916mil,2443.409mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mil]</acronym></a><br>Waived by Jacob Thompson at 11/21/2022 4:35:48 PM<br>Caution hot surface under DRV chip - Silk to solder mask</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4607.068mil|Location2.X=4613.75mil|Location1.Y=4013.869mil|Location2.Y=4023.217mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4607.068mil|Location2.X=4613.75mil|Location1.Y=4013.869mil|Location2.Y=4023.217mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (3.43mil &lt; 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3906.916mil,2486.716mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [3.43mil]</acronym></a><br>Waived by Jacob Thompson at 11/21/2022 4:35:48 PM<br>Caution hot surface under DRV chip - Silk to solder mask</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4629.047mil|Location2.X=4634.234mil|Location1.Y=3974.816mil|Location2.Y=3980.003mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4629.047mil|Location2.X=4634.234mil|Location1.Y=3974.816mil|Location2.Y=3980.003mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (1.479mil &lt; 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3950.223mil,2443.409mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [1.479mil]</acronym></a><br>Waived by Jacob Thompson at 11/21/2022 4:35:48 PM<br>Caution hot surface under DRV chip - Silk to solder mask</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4634.086mil|Location2.X=4637.71mil|Location1.Y=4012.178mil|Location2.Y=4015.803mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4634.086mil|Location2.X=4637.71mil|Location1.Y=4012.178mil|Location2.Y=4015.803mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 3.937mil) Between Text "CAUTION HOT SURFACE" (4183.82mil,2420.01mil) on Bottom Overlay And Via (3950.223mil,2486.716mil) from Top Layer to Bottom Layer [Bottom Overlay] to [Bottom Solder] clearance [0mil]</acronym></a><br>Waived by Jacob Thompson at 11/21/2022 4:35:48 PM<br>Caution hot surface under DRV chip - Silk to solder mask</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDQADMOIQ3AQI5OVSSIU3BB3FLOE3QRDXJ0EPLAIIHUW1CZUWVWSFB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Silk To Solder Mask (Clearance=5mil) ((IsPad or IsFill or IsRegion) and InAnycomponent),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2125.928mil|Location2.X=2132.178mil|Location1.Y=3586.625mil|Location2.Y=3592.875mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2125.928mil|Location2.X=2132.178mil|Location1.Y=3586.625mil|Location2.Y=3592.875mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.933mil &lt; 5mil) Between Pad TP18-1(1431.475mil,2041.576mil) on Multi-Layer And Text "TP19" (1392mil,2058mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.933mil]</acronym></a><br>Waived by Jacob Thompson at 11/17/2022 3:09:41 PM<br>TP19-TP23 labels</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2125.682mil|Location2.X=2131.932mil|Location1.Y=3652.421mil|Location2.Y=3658.671mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2125.682mil|Location2.X=2131.932mil|Location1.Y=3652.421mil|Location2.Y=3658.671mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.834mil &lt; 5mil) Between Pad TP20-1(1432mil,2105.051mil) on Multi-Layer And Text "TP21" (1392mil,2125.771mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.834mil]</acronym></a><br>Waived by Jacob Thompson at 11/17/2022 3:09:41 PM<br>TP19-TP23 labels</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2116.852mil|Location2.X=2123.102mil|Location1.Y=3683.534mil|Location2.Y=3689.784mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2116.852mil|Location2.X=2123.102mil|Location1.Y=3683.534mil|Location2.Y=3689.784mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (4.402mil &lt; 5mil) Between Pad TP22-1(1434mil,2168.525mil) on Multi-Layer And Text "TP21" (1392mil,2125.771mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [4.402mil]</acronym></a><br>Waived by Jacob Thompson at 11/17/2022 3:09:41 PM<br>TP19-TP23 labels</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2123.759mil|Location2.X=2130.009mil|Location1.Y=3715.526mil|Location2.Y=3721.776mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2123.759mil|Location2.X=2130.009mil|Location1.Y=3715.526mil|Location2.Y=3721.776mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (2.763mil &lt; 5mil) Between Pad TP22-1(1434mil,2168.525mil) on Multi-Layer And Text "TP23" (1389mil,2188mil) on Top Overlay [Top Overlay] to [Top Solder] clearance [2.763mil]</acronym></a><br>Waived by Jacob Thompson at 11/17/2022 3:09:41 PM<br>TP19-TP23 labels</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDSPWWIVABIIB3MC2GAZQDRX4KJCATI4IDLEXC2CKI2SG5F1OA3PNL"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Component Clearance Constraint ( Horizontal Gap = 30mil, Vertical Gap = 10mil ) (All),(All) </th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=965.268mil|Location2.X=996.518mil|Location1.Y=1730.42mil|Location2.Y=1761.67mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=965.268mil|Location2.X=996.518mil|Location1.Y=1730.42mil|Location2.Y=1761.67mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component H1_Nut-9605 (255.905mil,255.905mil) on Top Layer And SMT Small Component H1-4822 (255.905mil,255.905mil) on Bottom Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:02 PM<br>Hex nuts on standoffs</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5453.457mil|Location2.X=5484.707mil|Location1.Y=1730.42mil|Location2.Y=1761.67mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5453.457mil|Location2.X=5484.707mil|Location1.Y=1730.42mil|Location2.Y=1761.67mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component H2_Nut-9605 (4744.095mil,255.905mil) on Top Layer And SMT Small Component H2-4822 (4744.095mil,255.905mil) on Bottom Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:02 PM<br>Hex nuts on standoffs</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5453.457mil|Location2.X=5484.707mil|Location1.Y=6218.609mil|Location2.Y=6249.859mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5453.457mil|Location2.X=5484.707mil|Location1.Y=6218.609mil|Location2.Y=6249.859mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component H3_Nut-9605 (4744.095mil,4744.095mil) on Top Layer And SMT Small Component H3-4822 (4744.095mil,4744.095mil) on Bottom Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:02 PM<br>Hex nuts on standoffs</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=895.807mil|Location2.X=927.057mil|Location1.Y=6221.399mil|Location2.Y=6252.649mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=895.807mil|Location2.X=927.057mil|Location1.Y=6221.399mil|Location2.Y=6252.649mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component H4_Nut-9605 (255.905mil,4744.095mil) on Top Layer And SMT Small Component H4-4822 (255.905mil,4744.095mil) on Bottom Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:02 PM<br>Hex nuts on standoffs</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.168mil|Location2.X=3216.418mil|Location1.Y=4658.416mil|Location2.Y=4689.666mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.168mil|Location2.X=3216.418mil|Location1.Y=4658.416mil|Location2.Y=4689.666mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J10-60900213421 (2519.26mil,3190.809mil) on Top Layer And SMT Small Component SH-J13-60900213421 (2519.26mil,3089.265mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.168mil|Location2.X=3216.418mil|Location1.Y=4759.96mil|Location2.Y=4791.21mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.168mil|Location2.X=3216.418mil|Location1.Y=4759.96mil|Location2.Y=4791.21mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J10-60900213421 (2519.26mil,3190.809mil) on Top Layer And SMT Small Component SH-J7-60900213421 (2519.26mil,3292.352mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.168mil|Location2.X=3216.418mil|Location1.Y=4556.872mil|Location2.Y=4588.122mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.168mil|Location2.X=3216.418mil|Location1.Y=4556.872mil|Location2.Y=4588.122mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J11-60900213421 (2519.26mil,2987.721mil) on Top Layer And SMT Small Component SH-J13-60900213421 (2519.26mil,3089.265mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.168mil|Location2.X=3216.418mil|Location1.Y=4455.328mil|Location2.Y=4486.578mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.168mil|Location2.X=3216.418mil|Location1.Y=4455.328mil|Location2.Y=4486.578mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J11-60900213421 (2519.26mil,2987.721mil) on Top Layer And SMT Small Component SH-J14-60900213421 (2519.26mil,2886.177mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1896.579mil|Location2.X=1927.829mil|Location1.Y=4914.669mil|Location2.Y=4945.919mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1896.579mil|Location2.X=1927.829mil|Location1.Y=4914.669mil|Location2.Y=4945.919mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J12-60900213421 (1270mil,3385.827mil) on Top Layer And SMT Small Component SH-J15-60900213421 (1170.4mil,3385.827mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1796.979mil|Location2.X=1828.229mil|Location1.Y=4914.669mil|Location2.Y=4945.919mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1796.979mil|Location2.X=1828.229mil|Location1.Y=4914.669mil|Location2.Y=4945.919mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J15-60900213421 (1170.4mil,3385.827mil) on Top Layer And SMT Small Component SH-J9-60900213421 (1070.8mil,3385.827mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.168mil|Location2.X=3216.418mil|Location1.Y=5064.591mil|Location2.Y=5095.841mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.168mil|Location2.X=3216.418mil|Location1.Y=5064.591mil|Location2.Y=5095.841mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J1-60900213421 (2519.26mil,3596.984mil) on Top Layer And SMT Small Component SH-J2-60900213421 (2519.26mil,3495.44mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.102mil|Location2.X=3237.352mil|Location1.Y=3801.125mil|Location2.Y=3832.375mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.102mil|Location2.X=3237.352mil|Location1.Y=3801.125mil|Location2.Y=3832.375mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J16-60900213421 (2519.26mil,2331.711mil) on Top Layer And SMT Small Component SH-J19-60900213421 (2519.26mil,2233.799mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.102mil|Location2.X=3237.352mil|Location1.Y=3899.037mil|Location2.Y=3930.287mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.102mil|Location2.X=3237.352mil|Location1.Y=3899.037mil|Location2.Y=3930.287mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J16-60900213421 (2519.26mil,2331.711mil) on Top Layer And SMT Small Component SH-J8-60900213421 (2519.26mil,2429.623mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.102mil|Location2.X=3237.352mil|Location1.Y=3507.389mil|Location2.Y=3538.639mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.102mil|Location2.X=3237.352mil|Location1.Y=3507.389mil|Location2.Y=3538.639mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J17-60900213421 (2519.26mil,2037.975mil) on Top Layer And SMT Small Component SH-J20-60900213421 (2519.26mil,1940.063mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.102mil|Location2.X=3237.352mil|Location1.Y=3605.301mil|Location2.Y=3636.551mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.102mil|Location2.X=3237.352mil|Location1.Y=3605.301mil|Location2.Y=3636.551mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J17-60900213421 (2519.26mil,2037.975mil) on Top Layer And SMT Small Component SH-J22-60900213421 (2519.26mil,2135.887mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.102mil|Location2.X=3237.352mil|Location1.Y=3311.566mil|Location2.Y=3342.816mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.102mil|Location2.X=3237.352mil|Location1.Y=3311.566mil|Location2.Y=3342.816mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J18-60900213421 (2519.26mil,1744.239mil) on Top Layer And SMT Small Component SH-J21-60900213421 (2519.26mil,1842.151mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.102mil|Location2.X=3237.352mil|Location1.Y=3703.213mil|Location2.Y=3734.463mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.102mil|Location2.X=3237.352mil|Location1.Y=3703.213mil|Location2.Y=3734.463mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J19-60900213421 (2519.26mil,2233.799mil) on Top Layer And SMT Small Component SH-J22-60900213421 (2519.26mil,2135.887mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.102mil|Location2.X=3237.352mil|Location1.Y=3409.477mil|Location2.Y=3440.727mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3206.102mil|Location2.X=3237.352mil|Location1.Y=3409.477mil|Location2.Y=3440.727mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J20-60900213421 (2519.26mil,1940.063mil) on Top Layer And SMT Small Component SH-J21-60900213421 (2519.26mil,1842.151mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.168mil|Location2.X=3216.418mil|Location1.Y=4963.047mil|Location2.Y=4994.297mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.168mil|Location2.X=3216.418mil|Location1.Y=4963.047mil|Location2.Y=4994.297mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J2-60900213421 (2519.26mil,3495.44mil) on Top Layer And SMT Small Component SH-J4-60900213421 (2519.26mil,3393.896mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1597.779mil|Location2.X=1629.029mil|Location1.Y=4914.669mil|Location2.Y=4945.919mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1597.779mil|Location2.X=1629.029mil|Location1.Y=4914.669mil|Location2.Y=4945.919mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J3-60900213421 (871.6mil,3385.827mil) on Top Layer And SMT Small Component SH-J6-60900213421 (971.2mil,3385.827mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.168mil|Location2.X=3216.418mil|Location1.Y=4861.504mil|Location2.Y=4892.754mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3185.168mil|Location2.X=3216.418mil|Location1.Y=4861.504mil|Location2.Y=4892.754mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J4-60900213421 (2519.26mil,3393.896mil) on Top Layer And SMT Small Component SH-J7-60900213421 (2519.26mil,3292.352mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1697.379mil|Location2.X=1728.629mil|Location1.Y=4914.669mil|Location2.Y=4945.919mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1697.379mil|Location2.X=1728.629mil|Location1.Y=4914.669mil|Location2.Y=4945.919mil|Absolute=True">Component Clearance Constraint: (Collision &lt; 30mil) Between SMT Small Component SH-J6-60900213421 (971.2mil,3385.827mil) on Top Layer And SMT Small Component SH-J9-60900213421 (1070.8mil,3385.827mil) on Top Layer </acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:24 PM<br>Shunt on Header</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDCULKWU1VB2N1PKOCEZTPYSXKDBVOX4JT1DEFGFCFJCFT0IZQF2SN"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="waived">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=946.905mil|Location2.X=948.905mil|Location1.Y=1788.906mil|Location2.Y=1790.906mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=946.905mil|Location2.X=948.905mil|Location1.Y=1788.906mil|Location2.Y=1790.906mil|Absolute=True">Height Constraint: SMT Small Component H1-4822 (255.905mil,255.905mil) on Bottom Layer Actual Height = 1250.6mil</acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:38 PM<br>Hex standoffs</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5435.095mil|Location2.X=5437.095mil|Location1.Y=1788.906mil|Location2.Y=1790.906mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5435.095mil|Location2.X=5437.095mil|Location1.Y=1788.906mil|Location2.Y=1790.906mil|Absolute=True">Height Constraint: SMT Small Component H2-4822 (4744.095mil,255.905mil) on Bottom Layer Actual Height = 1250.6mil</acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:38 PM<br>Hex standoffs</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5435.095mil|Location2.X=5437.095mil|Location1.Y=6277.095mil|Location2.Y=6279.095mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=5435.095mil|Location2.X=5437.095mil|Location1.Y=6277.095mil|Location2.Y=6279.095mil|Absolute=True">Height Constraint: SMT Small Component H3-4822 (4744.095mil,4744.095mil) on Bottom Layer Actual Height = 1250.6mil</acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:38 PM<br>Hex standoffs</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=946.905mil|Location2.X=948.905mil|Location1.Y=6277.095mil|Location2.Y=6279.095mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\a0501163\TI Drive\BSM EVMS\MD040A from CDDS-E no akshay edit\MD040A Altium Project\MD040_RevA.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=946.905mil|Location2.X=948.905mil|Location1.Y=6277.095mil|Location2.Y=6279.095mil|Absolute=True">Height Constraint: SMT Small Component H4-4822 (255.905mil,4744.095mil) on Bottom Layer Actual Height = 1250.6mil</acronym></a><br>Waived by Jacob Thompson at 11/17/2022 2:54:38 PM<br>Hex standoffs</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
