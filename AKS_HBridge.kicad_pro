@@ -63,10 +63,10 @@
           "min_clearance": 0.5,
           "min_island_area": 10.0,
           "min_thickness": 0.25,
-          "pad_connection": 1,
+          "pad_connection": 2,
           "remove_islands": 0,
-          "thermal_relief_gap": 0.5,
-          "thermal_relief_spoke_width": 0.5
+          "thermal_relief_gap": 0.254,
+          "thermal_relief_spoke_width": 0.254
         }
       },
       "diff_pair_dimensions": [
@@ -214,9 +214,9 @@
       ],
       "track_widths": [
         0.0,
-        0.3,
-        0.4,
-        0.6
+        0.3048,
+        0.3556,
+        0.4064
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -504,7 +504,9 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [],
+    "pinned_footprint_libs": [
+      "custom_components"
+    ],
     "pinned_symbol_libs": []
   },
   "meta": {
@@ -528,8 +530,8 @@
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.25,
         "tuning_profile": "",
-        "via_diameter": 0.6,
-        "via_drill": 0.3,
+        "via_diameter": 0.5,
+        "via_drill": 0.35,
         "wire_width": 6
       }
     ],
@@ -681,7 +683,7 @@
         "uuid": "724ac156-55a4-4fba-8a20-6a27287ebea5"
       }
     ],
-    "used_designators": "#FLG1-4,#PWR1-18,C1-12,J1-6,NT1,R1-3,TP1-2,U1",
+    "used_designators": "#FLG1-4,#PWR1-18,C1-12,HS1,J1-6,NT1,R1-3,TP1-2,U1",
     "variants": []
   },
   "sheets": [
